@@ -21,9 +21,8 @@ namespace CmsCore.ControllerCustom
                 {
                     Endpoints = app =>
                     {
-                        app.UseRouting();
                         app.UsePathBase(new PathString(Api.preFix));
-                        
+                        app.UseRouting();
                         app.UseEndpoints(endpoints =>
                         {
                             endpoints.MapControllerRoute("aaa", "{controller}/{action}");
