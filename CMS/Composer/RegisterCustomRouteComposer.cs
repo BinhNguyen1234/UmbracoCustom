@@ -26,7 +26,6 @@ namespace CmsCore.Composer
             builder.MapCustomControllersRoutes();
             builder.Services.ConfigureSwaggerGen(options =>
             {
-                
                 options.DocumentFilter<SwaggerDocConfigure>();
                 options.SwaggerDoc("v3", new OpenApiInfo { Title = "My API", Version = "Custom V1" });
             });

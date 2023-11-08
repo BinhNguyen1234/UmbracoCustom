@@ -1,7 +1,10 @@
 ﻿using CMS.Configure;
+using CMS.Enum;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using System;
 using Umbraco.Cms.Core.DependencyInjection;
 using Umbraco.Cms.Web.Common.ApplicationBuilder;
 
@@ -19,13 +22,12 @@ namespace CmsCore.ControllerCustom
                     Endpoints = app =>
                     {
                         app.UseRouting();
-                        app.Map("", app =>
+                        app.UsePathBase(new PathString(Api.preFix));
+                        
+                        app.UseEndpoints(endpoints =>
                         {
-                            app.UseEndpoints(endpoints =>
-                            {
-                                endpoints.MapControllerRoute("api", "{controller}/{action}");
-                            });
-                        }); 
+                            endpoints.MapControllerRoute("aaa", "{controller}/{action}");
+                        });
                     }
                 }); ;
             });
