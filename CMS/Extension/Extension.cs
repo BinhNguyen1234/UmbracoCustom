@@ -11,16 +11,9 @@ using Umbraco.Cms.Web.Common.ApplicationBuilder;
 namespace CMS.Extension
 {
 
-    public static class ExtensionSwagger
-    {
-        public static void AddCustomSwagger(this IUmbracoBuilder builder)
-        {
+    public static class ExtensionSwagger { }
 
-        }
-        public static void ConfigureServiceSwagger(this IServiceCollection services)
-        {
-        }
-    }
+    
 }
 public static class MyConfigureSwaggerRouteUmbracoBuilderExtensions
 {

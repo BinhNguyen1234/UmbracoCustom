@@ -14,6 +14,8 @@ using CmsCore.ControllerCustom;
 using CMS.Extension;
 using Microsoft.OpenApi.Models;
 using Serilog;
+using CMS.Configure;
+using CMS.Configure.Swagger;
 
 namespace CmsCore.Composer
 {
@@ -22,6 +24,12 @@ namespace CmsCore.Composer
         public void Compose(IUmbracoBuilder builder)
         {
             builder.MapCustomControllersRoutes();
+            builder.Services.ConfigureSwaggerGen(options =>
+            {
+                
+                options.DocumentFilter<SwaggerDocConfigure>();
+                options.SwaggerDoc("v3", new OpenApiInfo { Title = "My API", Version = "Custom V1" });
+            });
         }
     }
 }
