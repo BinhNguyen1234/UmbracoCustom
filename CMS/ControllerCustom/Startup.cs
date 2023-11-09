@@ -14,7 +14,6 @@ namespace CmsCore.ControllerCustom
     {
         public static void MapCustomControllersRoutes(this IUmbracoBuilder builder)
         {
-            builder.Services.AddRouting(options => options.LowercaseUrls = true);
             builder.Services.Configure<UmbracoPipelineOptions>(options =>
             {
                 options.AddFilter(new UmbracoPipelineFilter("api")
@@ -28,7 +27,8 @@ namespace CmsCore.ControllerCustom
                             endpoints.MapControllerRoute("aaa", "{controller}/{action}");
                         });
                     }
-                }); ;
+                });
+                
             });
         }
     }

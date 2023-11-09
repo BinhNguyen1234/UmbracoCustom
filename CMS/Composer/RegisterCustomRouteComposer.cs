@@ -23,11 +23,12 @@ namespace CmsCore.Composer
     {
         public void Compose(IUmbracoBuilder builder)
         {
+            builder.Services.AddSerilog();
+            builder.Services.AddRouting(options => options.LowercaseUrls = true);
             builder.MapCustomControllersRoutes();
             builder.Services.ConfigureSwaggerGen(options =>
             {
                 options.DocumentFilter<SwaggerDocConfigure>();
-                options.SwaggerDoc("v3", new OpenApiInfo { Title = "My API", Version = "Custom V1" });
             });
         }
     }

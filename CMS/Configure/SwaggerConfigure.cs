@@ -10,15 +10,18 @@ using CMS.Enum;
 using System.IO;
 using Umbraco.Cms.Web.Common.ApplicationBuilder;
 using Umbraco.Cms.Api.Common.OpenApi;
+using Umbraco.Cms.Core.Composing;
 
 namespace CMS.Configure.Swagger
 {
     public class SwaggerDocConfigure : IDocumentFilter
     {
         private string _prefix = Api.preFix;
-
+        
         public void Apply(OpenApiDocument swaggerDoc, DocumentFilterContext context)
         {
+            var newInfo = new OpenApiInfo() { Title = "Extend Api", Version = "1", Description = "For test"};
+            swaggerDoc.Info = newInfo;
             var apiPaths = swaggerDoc.Paths.Keys.ToList();
             foreach ( var key in apiPaths)
             {
