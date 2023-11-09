@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS", "CMS\CMS.csproj", "{66F7625F-292E-4DDC-85D5-C7CB163FCBB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CMS", "CMS\CMS.csproj", "{66F7625F-292E-4DDC-85D5-C7CB163FCBB9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UmbracoProject", "UmbracoProject\UmbracoProject.csproj", "{EEEB7D65-256B-46B1-A4E0-F44E37B84B2A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UmbracoProject", "UmbracoProject\UmbracoProject.csproj", "{73D07FBB-6189-4273-9523-4BA6AB98E1E7}"
 	ProjectSection(ProjectDependencies) = postProject
 		{66F7625F-292E-4DDC-85D5-C7CB163FCBB9} = {66F7625F-292E-4DDC-85D5-C7CB163FCBB9}
 	EndProjectSection
@@ -20,10 +20,10 @@ Global
 		{66F7625F-292E-4DDC-85D5-C7CB163FCBB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66F7625F-292E-4DDC-85D5-C7CB163FCBB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66F7625F-292E-4DDC-85D5-C7CB163FCBB9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EEEB7D65-256B-46B1-A4E0-F44E37B84B2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EEEB7D65-256B-46B1-A4E0-F44E37B84B2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EEEB7D65-256B-46B1-A4E0-F44E37B84B2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EEEB7D65-256B-46B1-A4E0-F44E37B84B2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73D07FBB-6189-4273-9523-4BA6AB98E1E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73D07FBB-6189-4273-9523-4BA6AB98E1E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73D07FBB-6189-4273-9523-4BA6AB98E1E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73D07FBB-6189-4273-9523-4BA6AB98E1E7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

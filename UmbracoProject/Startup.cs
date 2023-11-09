@@ -1,12 +1,3 @@
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using System;
-using Umbraco.Cms.Core.DependencyInjection;
-using Umbraco.Extensions;
-using CMS.Extension;
 namespace UmbracoProject
 {
     public class Startup
