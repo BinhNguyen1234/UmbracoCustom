@@ -7,7 +7,7 @@ using Umbraco.Extensions;
 
 namespace CmsCore.Composer
 {
-    public class CustomRoute 
+    public class CustomRoute : IComposer
     {
         public void Compose(IUmbracoBuilder builder)
         {

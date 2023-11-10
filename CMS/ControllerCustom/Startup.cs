@@ -20,6 +20,7 @@ namespace CmsCore.ControllerCustom
                     {
                         app.UsePathBase(new PathString(Api.preFix));
                         app.UseRouting();
+                        app.UseAuthorization();
                         app.UseEndpoints(endpoints =>
                         {
                             endpoints.MapControllers();
