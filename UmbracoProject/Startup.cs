@@ -50,7 +50,7 @@ namespace UmbracoProject
             }
 
             app.UseHttpsRedirection();
-
+            
             app.UseUmbraco()
                 .WithMiddleware(u =>
                 {

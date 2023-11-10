@@ -1,17 +1,13 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Umbraco.Cms.Web.Common.Controllers;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+
 
 namespace CmsCore.ControllerCustom
 {
     [Route("[controller]/[action]")]
+    [Authorize]
     [ApiController]
-    public class TestController : UmbracoController
+    public class TestController : Controller
     {
         [HttpGet]
         public IActionResult name()

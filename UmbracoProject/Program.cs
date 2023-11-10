@@ -1,3 +1,5 @@
+using Serilog;
+
 namespace UmbracoProject
 {
     public class Program
@@ -10,6 +12,7 @@ namespace UmbracoProject
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureUmbracoDefaults()
+                .UseSerilog()
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStaticWebAssets();
