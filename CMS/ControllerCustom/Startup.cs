@@ -1,5 +1,6 @@
 ﻿
 using CMS.Enum;
+using CMS.Filters;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,20 +15,7 @@ namespace CmsCore.ControllerCustom
         {
             builder.Services.Configure<UmbracoPipelineOptions>(options =>
             {
-                options.AddFilter(new UmbracoPipelineFilter("api")
-                {
-                    Endpoints = app =>
-                    {
-                        app.UsePathBase(new PathString(Api.preFix));
-                        app.UseRouting();
-                        app.UseAuthorization();
-                        app.UseEndpoints(endpoints =>
-                        {
-                            endpoints.MapControllers();
-                        });
-                    }
-                });
-                
+                options.AddFilter(new ApiFilter());
             });
         }
     }

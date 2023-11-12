@@ -19,12 +19,11 @@ namespace CMS.Configure.Swagger
         public void Apply(OpenApiDocument swaggerDoc, DocumentFilterContext context)
         {
             var apiPaths = swaggerDoc.Paths.Keys.ToList();
-            foreach ( var key in apiPaths)
+            foreach ( var path in apiPaths)
             {
-                var oldPath = swaggerDoc.Paths[key];
-                var newPath = _prefix + key;
-                
-                swaggerDoc.Paths.Remove(key);
+                var oldPath = swaggerDoc.Paths[path];
+                var newPath = _prefix + path;
+                swaggerDoc.Paths.Remove(path);
                 swaggerDoc.Paths.Add(newPath, oldPath);
             }
         }

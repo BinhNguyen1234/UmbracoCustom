@@ -4,8 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CmsCore.ControllerCustom
 {
-    [Route("[controller]/[action]")]
-    [Authorize]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     public class TestController : Controller
     {
@@ -13,6 +12,11 @@ namespace CmsCore.ControllerCustom
         public IActionResult name()
         {
             return Ok("binh");
-        } 
+        }
+        [HttpGet]
+        public IActionResult Age()
+        {
+            return Ok("25");
+        }
     }
 }

@@ -17,7 +17,6 @@ namespace CmsCore.Composer
                 options.DocumentFilter<SwaggerDocConfigure>();
             });
             builder.MapCustomControllersRoutes();
-            
         }
     }
 }
