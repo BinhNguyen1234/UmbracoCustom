@@ -20,4 +20,9 @@
     <PackageReference Include="Umbraco.Cms.Web.Common" Version="12.3.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Extension\" />
+    <Folder Include="Filters\" />
+  </ItemGroup>
+
 </Project>

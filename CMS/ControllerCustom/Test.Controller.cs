@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using CMS.Enum;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
 namespace CmsCore.ControllerCustom
 {
-    [Route("api/[controller]/[action]")]
+    
+    [ApiRouteAtribute("[controller]/[action]")]
     [ApiController]
     public class TestController : Controller
     {
@@ -18,5 +20,5 @@ namespace CmsCore.ControllerCustom
         {
             return Ok("25");
         }
-    }
+    }  
 }

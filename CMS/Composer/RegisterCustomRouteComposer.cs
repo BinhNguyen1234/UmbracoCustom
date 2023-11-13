@@ -1,9 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.AspNetCore.Routing;
+using Microsoft.Extensions.DependencyInjection;
 using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.DependencyInjection;
-using CmsCore.ControllerCustom;
-using CMS.Configure.Swagger;
-using Umbraco.Extensions;
 
 namespace CmsCore.Composer
 {
@@ -11,12 +9,10 @@ namespace CmsCore.Composer
     {
         public void Compose(IUmbracoBuilder builder)
         {
-            builder.Services.AddRouting(options => options.LowercaseUrls = true);
-            builder.Services.ConfigureSwaggerGen(options =>
+            builder.Services.Configure<RouteOptions>(options =>
             {
-                options.DocumentFilter<SwaggerDocConfigure>();
+                options.LowercaseUrls = true;
             });
-            builder.MapCustomControllersRoutes();
         }
     }
 }
