@@ -1,4 +1,5 @@
-﻿using Core.Context;
+﻿using Core.Configure;
+using Core.Context;
 using Core.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
@@ -13,11 +14,7 @@ namespace Core
         }
         public void Configure(WebApplication app, IWebHostEnvironment env)
         {
-            app.Use((context, next) =>
-            {
-                context.Request.EnableBuffering();
-                return next();
-            });
+
             app.Map("/api", app =>
             {
                 app.UseRouting();
@@ -28,10 +25,7 @@ namespace Core
             });
 #if DEBUG
             app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Api v1");
-            });
+            app.UseSwaggerUI();
 #elif RELEASE
 
 #endif
@@ -47,15 +41,13 @@ namespace Core
                     optionsBuilder.UseSqlServer(connectionString);
                 }
             });
+            services.AddControllers();
 
 #if DEBUG
             services.AddSwaggerGen(c =>
             {
-                //c.DocumentFilter<SwaggerPathPrefixInsertDocumentFilter>("api");
-                //c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
-            }
-            );
-
+                c.DocumentFilter<SwaggerConfigure>("api");
+            });
 #endif
         }
     }

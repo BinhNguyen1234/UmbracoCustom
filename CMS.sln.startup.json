@@ -11,11 +11,11 @@
       "Projects": {
         "Core": {
           "commandName": "Project",
-          "launchBrowser": false
+          "launchBrowser": true
         },
         "UmbracoProject": {
           "commandName": "Project",
-          "launchBrowser": false
+          "launchBrowser": true
         }
       }
     }

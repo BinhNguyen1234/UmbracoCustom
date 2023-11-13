@@ -18,11 +18,12 @@
     },
     "Umbraco.Web.UI": {
       "commandName": "Project",
+      "launchBrowser": true,
       "dotnetRunMessages": true,
       "applicationUrl": "https://localhost:44338;http://localhost:46902",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }      
+      }
     }
   }
 }
