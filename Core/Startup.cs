@@ -1,8 +1,9 @@
 ﻿using Core.Configure;
-using Core.Context;
+using Core.Infrastructure;
 using Core.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
+using StackExchange.Redis;
 namespace Core
 {
     public class Startup
@@ -42,11 +43,26 @@ namespace Core
                 }
             });
             services.AddControllers();
+            services.AddStackExchangeRedisCache(options =>
+            {
+                
+                options.Configuration = _builder.Configuration["ReddisCached:connectionString"];
+                options.ConfigurationOptions = new ConfigurationOptions()
+                {
+
+                };
+            });
+            services.AddSingleton<IDatabase>(cfg =>
+            {
+                var conection = _builder.Configuration["ReddisCached:connectionString"];
+                IConnectionMultiplexer multiplexer = ConnectionMultiplexer.Connect(conection);
+                return multiplexer.GetDatabase();
+            });
 
 #if DEBUG
             services.AddSwaggerGen(c =>
             {
-                c.DocumentFilter<SwaggerConfigure>("api");
+                c.DocumentFilter<AddPrefixForApiRoute>();
             });
 #endif
         }

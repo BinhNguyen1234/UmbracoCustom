@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Core.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Core.Context;
+namespace Core.Models;
 
 public partial class CmsContext : DbContext
 {
@@ -130,9 +129,9 @@ public partial class CmsContext : DbContext
 
     public virtual DbSet<UmbracoUserStartNode> UmbracoUserStartNodes { get; set; }
 
-//    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-//        => optionsBuilder.UseSqlServer("data source=.,1500;initial catalog=CMS;trusted_connection=true;Encrypt=True;TrustServerCertificate=True;user id=sa;password=M@roen4eee");
+    //    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+    //        => optionsBuilder.UseSqlServer("data source=.,1500;initial catalog=CMS;trusted_connection=true;Encrypt=True;TrustServerCertificate=True;user id=sa;password=M@roen4eee");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
