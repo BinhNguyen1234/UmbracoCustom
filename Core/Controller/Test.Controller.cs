@@ -27,13 +27,11 @@ namespace Core.ControllerApi
                 age = "bi"
             };
             var json = JsonSerializer.Serialize<AB>(aa);
-            _cached.StringSet("f6", json);
-
-            var tt = _cached.StringGet("f4");
-            var de = Encoding.UTF8.GetString(tt);
+            _cached.StringSet("f6:f7", json);
+            //var tt = _cached.StringGet("f4");
+            //var de = Encoding.UTF8.GetString(tt);
             var js = JsonSerializer.Deserialize<AB>(json);
             var d = _cmsContext.CmsContentNus.ToList();
-            Console.WriteLine(js);
             return Json(js);
         }
         [HttpPost]

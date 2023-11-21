@@ -3,6 +3,7 @@ using Core.Infrastructure;
 using Core.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
+using Microsoft.Identity.Client;
 using StackExchange.Redis;
 namespace Core
 {
@@ -43,19 +44,19 @@ namespace Core
                 }
             });
             services.AddControllers();
-            services.AddStackExchangeRedisCache(options =>
-            {
-                
-                options.Configuration = _builder.Configuration["ReddisCached:connectionString"];
-                options.ConfigurationOptions = new ConfigurationOptions()
-                {
-
-                };
-            });
             services.AddSingleton<IDatabase>(cfg =>
             {
                 var conection = _builder.Configuration["ReddisCached:connectionString"];
                 IConnectionMultiplexer multiplexer = ConnectionMultiplexer.Connect(conection);
+                multiplexer.ConnectionFailed += (sender, evt) =>
+                {
+                    Console.WriteLine("Connect to redis server failed");
+                };
+                multiplexer.ConnectionRestored += (sender, evt) =>
+                {
+                    Console.WriteLine("Connect to redis server success");
+                };
+                
                 return multiplexer.GetDatabase();
             });
 
