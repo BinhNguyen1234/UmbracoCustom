@@ -5,7 +5,8 @@ interface PropsNavBarItem {
     href: string
 }
 
-export default function NavBarItem({...props}:PropsNavBarItem){
+export default function NavBarItem({ ...props }: PropsNavBarItem) {
+    console.log("123213")
     return (
         <>
             <li>
