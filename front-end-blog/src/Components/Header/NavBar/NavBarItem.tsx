@@ -4,12 +4,11 @@ interface PropsNavBarItem {
     text: string,
     href: string
 }
-
+let style = "p6 md:p-2"
 export default function NavBarItem({ ...props }: PropsNavBarItem) {
-    console.log("123213")
     return (
         <>
-            <li>
+            <li className={style}>
                 <Link href={props.href}>
                     {props.text}
                 </Link>
