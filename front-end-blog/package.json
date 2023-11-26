@@ -7,9 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest",
+    "test": "npm run generate-mockup-style && jest",
     "test-debug": "jest-preview",
-    "generate-mockup-style": "npx tailwindcss -i ./src/app/globals.css -o ./src/mockup-style/mockup-global.css"
+    "generate-mockup-style": "npx tailwindcss -i ./src/app/globals.css -o ./src/MockupTesting/mockup-global.css"
   },
   "dependencies": {
     "lodash": "^4.17.21",

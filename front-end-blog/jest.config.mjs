@@ -15,7 +15,7 @@ const config = {
         "^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)":
             "jest-preview/transforms/file",
     },
-    setupFilesAfterEnv: ['<rootDir>/setupTests.ts'],
+    setupFilesAfterEnv: ["<rootDir>/setupTests.ts"],
     testEnvironment: "jest-environment-jsdom",
 };
 
