@@ -1,30 +1,30 @@
 "use server";
 import "./NavBarItem.component";
-import { ConfigForItem } from "@/Constant/Routing.constant";
 import NavBarItem from "./NavBarItem.component";
-import DarkModeButton from "../../../UIComponent/DarkModeBtn.component";
+import DarkModeToggleBtn from "./DarkModeToggleBtn";
 import axios from "axios";
 import { TRoutes } from "@/ModelData/Route.model";
 import getRoutesConfig from "@/apis/server/getRoutes";
-interface PropsNavBarMenu {
-    RoutingConstant: Array<ConfigForItem>;
-}
-export default async function NavBarMenu({ ...props }: PropsNavBarMenu) {
+
+export default async function NavBarMenu() {
     const items = await getRoutesConfig()
+    function ListNavBarItem() {
+        return _.map<TRoutes, JSX.Element>(items, (value, index) => {
+            return (
+                <NavBarItem
+                    key={index}
+                    name={value.name}
+                    url={value.url}
+                ></NavBarItem>
+            );
+        })
+    } 
     return (
         <>
             <ul className="md:flex md:justify-end md:gap-x-3.5 md:leading-6 md:text-xl">
-                {_.map<TRoutes, JSX.Element>(items.data, (value, index) => {
-                    return (
-                        <NavBarItem
-                            key={index}
-                            name={value.name}
-                            url={value.url}
-                        ></NavBarItem>
-                    );
-                })}
+                <ListNavBarItem></ListNavBarItem>
                 <li className="w-[55px] flex justify-center items-center">
-                    <DarkModeButton></DarkModeButton>
+                    <DarkModeToggleBtn></DarkModeToggleBtn>
                 </li>
             </ul>
         </>
