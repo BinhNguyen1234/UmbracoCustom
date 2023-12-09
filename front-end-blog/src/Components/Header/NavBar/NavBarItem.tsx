@@ -1,16 +1,16 @@
+"use client"
 import Link from "next/link"
 
 interface PropsNavBarItem {
-    text: string,
-    href: string
+    name: string,
+    url: string
 }
-let style = "p6 md:p-2"
 export default function NavBarItem({ ...props }: PropsNavBarItem) {
     return (
         <>
-            <li className={style}>
-                <Link href={props.href}>
-                    {props.text}
+            <li className="p6 md:p-2 hover:cursor-pointer">
+                <Link href={props.url}>
+                    {props.name}
                 </Link>
             </li>
         </>

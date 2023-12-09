@@ -1,6 +1,14 @@
 /** @type {import('next').NextConfig} */
+const wwebpack = require("webpack");
 const nextConfig = {
-    reactStrictMode: false
-}
+    reactStrictMode: false,
+    webpack: (config, options) => {
+        config.plugins.push(new wwebpack.ProvidePlugin({
+            _: "lodash"
+        }))
 
-module.exports = nextConfig
+        return config;
+    },
+};
+
+module.exports = nextConfig;
