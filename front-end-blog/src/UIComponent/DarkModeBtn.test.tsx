@@ -1,6 +1,6 @@
 import { cleanup, fireEvent } from "@testing-library/react";
 import  "@testing-library/jest-dom";
-import DarkModeBtn from "./DarkModeBtn";
+import DarkModeBtn from "./DarkModeBtn.component";
 import { render } from "@/MockupTesting/CustomRenderToAddCssGlobal"
 // import GlobalComponent from "@/testing/GlobalComponent";
 afterEach(cleanup);

@@ -1,6 +1,9 @@
 {
   "extends": "next/core-web-vitals",
   "rules": {
-    "quotes": [2,"double"]
-  }
+    "quotes": [2,"double"],
+    "indent": [2, 4]
+    
+  },
+  "plugins": ["react"]
 }

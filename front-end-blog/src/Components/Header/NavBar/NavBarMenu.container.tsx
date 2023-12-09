@@ -1,15 +1,14 @@
 "use server";
-import "./NavBarItem";
+import "./NavBarItem.component";
 import { ConfigForItem } from "@/Constant/Routing.constant";
-import NavBarItem from "./NavBarItem";
-import DarkModeButton from "../../../UIComponent/DarkModeBtn";
+import NavBarItem from "./NavBarItem.component";
+import DarkModeButton from "../../../UIComponent/DarkModeBtn.component";
 import axios from "axios";
 import { TRoutes } from "@/ModelData/Route.model";
 import getRoutesConfig from "@/apis/server/getRoutes";
 interface PropsNavBarMenu {
     RoutingConstant: Array<ConfigForItem>;
 }
-
 export default async function NavBarMenu({ ...props }: PropsNavBarMenu) {
     const items = await getRoutesConfig()
     return (
