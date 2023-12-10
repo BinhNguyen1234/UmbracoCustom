@@ -1,0 +1,3 @@
+[submodule "MockUpApi/Json/api"]
+	path = MockUpApi/Json/api
+	url = https://github.com/BinhNguyen1234/api.git
