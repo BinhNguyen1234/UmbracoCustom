@@ -3,7 +3,10 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.SwaggerGen;
 using System.IO;
+using System.Linq;
 namespace StartUp
 {
     public class Startup
@@ -25,7 +28,11 @@ namespace StartUp
                 });
             });
 #if DEBUG
-            app.UseSwaggerUI();
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                //c.SwaggerEndpoint("/","MockUp Api");
+            });
 #elif RELEASE
 
 #endif
@@ -36,7 +43,26 @@ namespace StartUp
             services.AddControllers();
 
 #if DEBUG
+            services.AddSwaggerGen(c =>
+            {
+                c.DocumentFilter<ConfigSwagger>();
+            });
 #endif
+        }
+    }
+    class ConfigSwagger : IDocumentFilter
+    {
+        private string _prefix = "/api";
+
+        public void Apply(OpenApiDocument document, DocumentFilterContext context)
+        {
+            var paths = document.Paths.Keys.ToList();
+            foreach (var path in paths)
+            {
+                var pathToChange = document.Paths[path];
+                document.Paths.Remove(path);
+                if (pathToChange != null) document.Paths.Add(_prefix + path, pathToChange);
+            }
         }
     }
 }

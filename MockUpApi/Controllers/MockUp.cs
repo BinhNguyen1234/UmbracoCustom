@@ -2,20 +2,32 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.IO;
+using System.Linq;
 namespace MockUpApi.Controllers
 {
     [Route("[controller]/[action]")]
     public class MockUp : Controller
     {
-        public MockUp() {
+        public MockUp()
+        {
         }
         [HttpGet("{fileName}")]
-        public IActionResult Get(string fileName) {
-            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "Json", fileName);
+        public IActionResult Get(string fileName)
+        {
+
             try
             {
+                var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "JsonFile");
+                DirectoryInfo folder = new DirectoryInfo(folderPath);
+                FileSystemInfo? file = folder.GetFileSystemInfos($"*", SearchOption.AllDirectories).FirstOrDefault(x => x.Name.ToLower().Equals(fileName.ToLower()) || x.Name.ToLower().StartsWith(fileName.ToLower()));
+                
+                if (file == null)
+                {
+                    throw new FileNotFoundException(folderPath);
+                }
+                Console.WriteLine(file.FullName);
                 string? line;
-                FileStream fileStream = new FileStream(filePath, FileMode.Open, FileAccess.Read,FileShare.Read);
+                FileStream fileStream = new FileStream(file.FullName, FileMode.Open, FileAccess.Read, FileShare.Read);
                 using (StreamReader reader = new StreamReader(fileStream))
                 {
                     line = reader.ReadToEnd();
@@ -23,7 +35,8 @@ namespace MockUpApi.Controllers
                 Console.WriteLine(line);
                 return Ok(line);
             }
-            catch(FileNotFoundException) {
+            catch (FileNotFoundException)
+            {
                 return NotFound("Not found file");
             }
 
