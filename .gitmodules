@@ -1,3 +1,9 @@
 [submodule "MockUpApi/Json/api"]
 	path = MockUpApi/Json/api
 	url = https://github.com/BinhNguyen1234/api.git
+[submodule "api"]
+	path = api
+	url = https://github.com/BinhNguyen1234/api.git
+[submodule "MockUpApi/JsonFile"]
+	path = MockUpApi/JsonFile
+	url = https://github.com/BinhNguyen1234/api.git
