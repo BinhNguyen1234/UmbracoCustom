@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "run": "next build && next start",
+    "start": "next build && next start",
     "lint": "next lint",
     "test": "npm run generate-mockup-style && jest",
     "test-debug": "jest-preview",

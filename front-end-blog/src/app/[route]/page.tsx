@@ -4,6 +4,7 @@ import getRoutesConfig from "@/apis/server/getRoutes"
 interface IParams {
     route: string
 }
+export const dynamicParams = false 
 export async function generateStaticParams() {
     const items = await getRoutesConfig()
     return _.map<TRoutes,IParams>(items,(value,index)=>{
@@ -19,4 +20,3 @@ export default function Route({params}:{params:{route: string}}){
     </>
 }
 
-export const dynamicParams = false 
