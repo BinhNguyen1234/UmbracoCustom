@@ -4,10 +4,12 @@ import getRoutesConfig from "@/apis/server/getRoutes"
 interface IParams {
     route: string
 }
-export const dynamic = 0
+// export const dynamic = 0
 export const dynamicParams = false 
 export async function generateStaticParams() {
+    console.log(123)
     const items = await getRoutesConfig()
+    console.log(items)
     return _.map<TRoutes,IParams>(items,(value)=>{
         const route = value.url.replace(/^\//,"")
         return {route}

@@ -1,12 +1,10 @@
-"use server";
-import "./NavBarItem.component";
-import NavBarItem from "./NavBarItem.component";
-import DarkModeToggleBtn from "./DarkModeToggleBtn";
-import { TRoutes } from "@/ModelData/Route.model";
-import getRoutesConfig from "@/apis/server/getRoutes";
 
-export default async function NavBarMenu() {
-    const items = await getRoutesConfig()
+import "./NavBarItem.view";
+import NavBarItem from "./NavBarItem.view";
+import DarkModeToggleBtn from "./DarkModeToggleBtn.control";
+import { TRoutes } from "@/ModelData/Route.model";
+
+export default function NavBarMenu({items}: {items: TRoutes[]}) {
     function ListNavBarItem() {
         return _.map<TRoutes, JSX.Element>(items, (value, index) => {
             return (
