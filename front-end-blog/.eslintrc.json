@@ -1,16 +1,29 @@
 {
-  "extends": "next/core-web-vitals",
-  "rules": {
-    "quotes": [2,"double"],
-    "indent": [2, 4],
-    "camelcase": [2, {
-      "ignoreDestructuring": true
-    }],
-    "max-depth": [2,2],
-    "max-lines": [2,200],
-    "no-continue": 2,
-    "prefer-const": 2,
-    "require-await": 2
-  },
-  "plugins": ["react"]
+    "extends": ["next/core-web-vitals", "plugin:@typescript-eslint/strict"],
+    "parser": "@typescript-eslint/parser",
+    "rules": {
+        "quotes": [2, "double"],
+        "indent": [2, 4],
+        "camelcase": [
+            2,
+            {
+                "ignoreDestructuring": true
+            }
+        ],
+        "max-depth": [2, 2],
+        "max-lines": [2, 200],
+        "no-continue": 2,
+        "prefer-const": 2,
+        "require-await": 2,
+        "@typescript-eslint/type-annotation-spacing": [
+            "error",
+            {
+                "before": false,
+                "after": true
+            }
+        ],
+        "@typescript-eslint/space-infix-ops": "error",
+        "@typescript-eslint/key-spacing": "error"
+    },
+    "plugins": ["react", "@typescript-eslint"]
 }

@@ -14,7 +14,7 @@ const customRender = (ui: ReactElement,options?: Omit<RenderOptions, "wrapper">)
     resizeWindow(1400,1000)
     return view;
 };
-const resizeWindow = (x : number, y : number) => {
+const resizeWindow = (x: number, y: number) => {
     window.innerWidth = x;
     window.innerHeight = y;
     window.dispatchEvent(new Event("resize"));

@@ -2,7 +2,6 @@
 import "./NavBarItem.component";
 import NavBarItem from "./NavBarItem.component";
 import DarkModeToggleBtn from "./DarkModeToggleBtn";
-import axios from "axios";
 import { TRoutes } from "@/ModelData/Route.model";
 import getRoutesConfig from "@/apis/server/getRoutes";
 
