@@ -28,10 +28,14 @@ namespace StartUp
                 });
             });
 #if DEBUG
-            app.UseSwagger();
+            app.UseSwagger(c =>
+            {
+                //c.RouteTemplate = "/swagger.json";
+            });
             app.UseSwaggerUI(c =>
             {
-                //c.SwaggerEndpoint("/","MockUp Api");
+                c.SwaggerEndpoint("swagger/v1/swagger.json", "Sample API");
+                c.RoutePrefix = "";
             });
 #elif RELEASE
 
