@@ -3,7 +3,7 @@ import axios from "axios";
 
 export default async function getRoutesConfig(){
     const result = await axios.get<[TRoutes]>(
-        "https://raw.githubusercontent.com/BinhNguyen1234/api/master/routes.json"
+        "http://localhost:5180/api/mockup/get/routes"
     );
     return result.data
 }
