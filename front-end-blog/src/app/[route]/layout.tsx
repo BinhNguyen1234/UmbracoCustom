@@ -1,15 +1,20 @@
-"use client"
+"use client";
 
 import { usePathname } from "next/navigation";
 import { ReactElement } from "react";
 
-export default function Layout(props: {
-    aboutme: ReactElement,
-    blog: ReactElement
+export default function Layout( props: {
+    aboutme: ReactElement;
+    blog: ReactElement;
 }) {
-    const segment = usePathname().replace(/^\//, "")
-    console.log(segment)
-    return <>
-        {props[segment]}
-    </>;
+    const segment = usePathname().replace(/^\//, "");
+    return (
+        <>
+            {(props as any)[segment]}
+        </>
+    );
 }
+// interface RoutesDefine {
+//     aboutme: ReactElement;
+//     blog: ReactElement;
+// }
