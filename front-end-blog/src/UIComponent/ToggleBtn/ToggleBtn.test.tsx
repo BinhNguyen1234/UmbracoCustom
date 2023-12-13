@@ -1,5 +1,5 @@
 import { cleanup, fireEvent } from "@testing-library/react";
-import  "@testing-library/jest-dom";
+import "@testing-library/jest-dom";
 import { render } from "@/MockupTesting/CustomRenderToAddCssGlobal"
 import ToggleButton from "./ToggleBtn.view";
 // import GlobalComponent from "@/testing/GlobalComponent";

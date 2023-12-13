@@ -4,7 +4,7 @@ export default function DarkModeToggleBtn(){
     function switchThemes(){
         document.body.classList.toggle("dark")
     }
-    return(<>
+    return (<>
         <ToggleButton onInput={switchThemes}></ToggleButton>
     </>)
 }

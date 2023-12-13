@@ -1,5 +1,5 @@
 {
-    "extends": ["next/core-web-vitals", "plugin:@typescript-eslint/strict"],
+    "extends": ["next/core-web-vitals", "plugin:@typescript-eslint/recommended"],
     "parser": "@typescript-eslint/parser",
     "rules": {
         "quotes": [2, "double"],
@@ -15,18 +15,32 @@
         "no-continue": 2,
         "prefer-const": 2,
         "require-await": 2,
-        "@typescript-eslint/type-annotation-spacing": [
+        "@typescript-eslint/no-unused-vars": [
+            2,
+            {
+                "argsIgnorePattern": "^_"
+            }
+        ],
+        "@stylistic/computed-property-spacing": ["error", "never"],
+        "@stylistic/no-multi-spaces": "error",
+        "@stylistic/no-whitespace-before-property": "error",
+        "@stylistic/rest-spread-spacing": "error",
+        "@stylistic/comma-spacing": [
+            "error"
+        ],
+        "@stylistic/ts/type-annotation-spacing": [
             "error",
             {
                 "before": false,
                 "after": true
             }
         ],
-        "@typescript-eslint/space-infix-ops": "error",
-        "@typescript-eslint/key-spacing": "error",
-        "@typescript-eslint/no-unused-vars": [2, {
-            "argsIgnorePattern": "^_"
-        }]
+        "@stylistic/ts/keyword-spacing": "error",
+        "@stylistic/ts/space-infix-ops": "error",
+        "@stylistic/ts/object-curly-spacing": ["error", "always"],
+        "@stylistic/ts/block-spacing": "error",
+        "@stylistic/type-generic-spacing": "error",
+        "@typescript-eslint/no-explicit-any": "warn"
     },
-    "plugins": ["react", "@typescript-eslint"]
+    "plugins": ["react", "@stylistic/ts", "@stylistic/eslint-plugin"]
 }

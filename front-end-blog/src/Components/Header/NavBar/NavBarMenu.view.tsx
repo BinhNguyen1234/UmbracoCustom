@@ -4,7 +4,7 @@ import NavBarItem from "./NavBarItem.view";
 import DarkModeToggleBtn from "./DarkModeToggleBtn.control";
 import { TRoutes } from "@/ModelData/Route.model";
 
-export default function NavBarMenu({items}: {items: TRoutes[]}) {
+export default function NavBarMenu({ items }: { items: TRoutes[] }) {
     function ListNavBarItem() {
         return _.map<TRoutes, JSX.Element>(items, (value, index) => {
             return (

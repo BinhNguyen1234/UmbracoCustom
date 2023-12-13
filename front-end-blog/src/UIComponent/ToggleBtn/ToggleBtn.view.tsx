@@ -1,6 +1,6 @@
 "use client"
 import React, { FormEventHandler } from "react";
-const ToggleButton = ({onInput}: {onInput?: FormEventHandler<HTMLInputElement>}) => {
+const ToggleButton = ({ onInput }: { onInput?: FormEventHandler<HTMLInputElement> }) => {
     return (
         <>
             <label className="block w-[100%] aspect-[2/1] bg-black border-black border-2  rounded-3xl p-[7%] hover:cursor-pointer dark:bg-white">
