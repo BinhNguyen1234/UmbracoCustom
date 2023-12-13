@@ -9,9 +9,10 @@ export default function Layout( props: {
     }
 }) {
     const route = props.params.route
+    const RenderComponent = (props as any)[route]()
     return (
         <>
-            {(props as any)[route]}
+            <RenderComponent></RenderComponent>
         </>
     );
 }
