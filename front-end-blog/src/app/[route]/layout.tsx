@@ -1,16 +1,17 @@
-"use client";
 
-import { usePathname } from "next/navigation";
 import { ReactElement } from "react";
 
 export default function Layout( props: {
     aboutme: ReactElement;
     blog: ReactElement;
+    params: {
+        route: string
+    }
 }) {
-    const segment = usePathname().replace(/^\//, "");
+    const route = props.params.route
     return (
         <>
-            {(props as any)[segment]}
+            {(props as any)[route]}
         </>
     );
 }
