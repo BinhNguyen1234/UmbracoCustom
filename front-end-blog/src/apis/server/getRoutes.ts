@@ -1,9 +1,9 @@
-import { TRoutes } from "@/ModelData/Route.model";
-import axios from "axios";
 
+import HttpClientAdapter from "@/lib/ApiAdapter";
 export default async function getRoutesConfig(){
-    const result = await axios.get<[TRoutes]>(
-        "http://localhost:5180/api/mockup/get/routes"
+    const api = new HttpClientAdapter()
+    const result = await api.get(
+        { url:"http://localhost:5180/api/mockup/get/routes" }
     );
     return result.data
 }
