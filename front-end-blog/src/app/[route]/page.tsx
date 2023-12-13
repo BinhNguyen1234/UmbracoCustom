@@ -13,11 +13,8 @@ export async function generateStaticParams() {
         return { route }
     })
 } 
-export default function Route({ params }: { params: { route: string, name: string } }){
+export default function Route(){
     return <>
-        <div>
-            {params.name}
-        </div>
     </>
 }
 
