@@ -7,6 +7,7 @@ using Microsoft.OpenApi.Models;
 using Swashbuckle.AspNetCore.SwaggerGen;
 using System.IO;
 using System.Linq;
+using MockUpApi.Middleware;
 namespace StartUp
 {
     public class Startup
@@ -18,7 +19,7 @@ namespace StartUp
         }
         public void Configure(WebApplication app, IWebHostEnvironment env)
         {
-
+            app.AddLoggingTimeMiddleWare();
             app.Map("/api", app =>
             {
                 app.UseRouting();

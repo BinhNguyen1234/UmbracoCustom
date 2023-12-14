@@ -1,10 +1,9 @@
-// import { Inter } from "next/font/google";
 import "./globals.css";
 import { getNavBarItem } from "@/Service/Ui.service";
 import Header from "@/Components/Header/Header.view";
 import NavBarMenu from "@/Components/Header/NavBar/NavBarMenu.view";
-// const inter = Inter({ subsets: ["latin"] });
 
+export const dynamic = "force-dynamic"
 export default async function RootLayout({
     children,
 }: {

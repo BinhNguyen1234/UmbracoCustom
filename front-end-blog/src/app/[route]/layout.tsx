@@ -1,6 +1,5 @@
-
+"use client"
 import { ReactElement } from "react";
-
 export default function Layout( props: {
     aboutme: ReactElement;
     blog: ReactElement;
@@ -8,11 +7,11 @@ export default function Layout( props: {
         route: string
     }
 }) {
-    const route = props.params.route
-    const RenderComponent = (props as any)[route]()
+    const currentRoute = props.params.route
+    const RenderComponent = (props as any)[currentRoute]
     return (
         <>
-            <RenderComponent></RenderComponent>
+            {RenderComponent}
         </>
     );
 }
