@@ -32,4 +32,4 @@ class HttpClientAdapter {
 interface AdapterRequestConfig extends AxiosRequestConfig {
     url: string
 }
-export default HttpClientAdapter
+export const httpClientAdapter = new HttpClientAdapter()

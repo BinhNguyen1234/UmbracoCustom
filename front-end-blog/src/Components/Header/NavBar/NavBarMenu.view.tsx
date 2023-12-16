@@ -2,11 +2,11 @@
 import "./NavBarItem.view";
 import NavBarItem from "./NavBarItem.view";
 import DarkModeToggleBtn from "./DarkModeToggleBtn.control";
-import { TRoutes } from "@/ModelData/Route.model";
+import { INavBar } from "@/Entities/navbar/navbar.type";
 
-export default function NavBarMenu({ items }: { items: TRoutes[] }) {
+export default function NavBarMenu({ items }: { items: INavBar[] }) {
     function ListNavBarItem() {
-        return _.map<TRoutes, JSX.Element>(items, (value, index) => {
+        return _.map<INavBar, JSX.Element>(items, (value, index) => {
             return (
                 <NavBarItem
                     key={index}
@@ -18,7 +18,7 @@ export default function NavBarMenu({ items }: { items: TRoutes[] }) {
     } 
     return (
         <>
-            <ul className="md:flex md:justify-end md:gap-x-3.5 md:leading-6 md:text-xl">
+            <ul className="md:flex md:justify-around md:justify-end md:gap-x-3.5 md:leading-6 md:text-xl">
                 <ListNavBarItem></ListNavBarItem>
                 <li className="w-[55px] flex justify-center items-center">
                     <DarkModeToggleBtn></DarkModeToggleBtn>
