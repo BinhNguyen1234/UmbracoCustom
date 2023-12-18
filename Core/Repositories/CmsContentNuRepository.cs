@@ -25,7 +25,7 @@ namespace Core.Repositories
             throw new NotImplementedException();
         }
 
-        public void Update(CmsContentNu content)
+        public override CmsContentNu Update(CmsContentNu content)
         {
             throw new NotImplementedException();
         }
