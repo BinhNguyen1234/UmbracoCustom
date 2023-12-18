@@ -1,5 +1,6 @@
-import { TRoutes } from "@/ModelData/Route.model";
-import getRoutesConfig from "@/apis/server/getRoutes"
+
+import { INavBar } from "@/Entities/header/navbar/navbar.type"
+import { getRoutesConfig } from "@/apis/server/getRoutes"
 
 interface IParams {
     route: string
@@ -8,7 +9,7 @@ interface IParams {
 export const dynamicParams = false 
 export async function generateStaticParams() {
     const items = await getRoutesConfig()
-    return _.map<TRoutes, IParams>(items, (value)=>{
+    return _.map<INavBar, IParams>(items, (value)=>{
         const route = value.url.replace(/^\//, "")
         return { route }
     })

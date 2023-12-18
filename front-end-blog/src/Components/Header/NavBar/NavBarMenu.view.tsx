@@ -2,7 +2,7 @@
 import "./NavBarItem.view";
 import NavBarItem from "./NavBarItem.view";
 import DarkModeToggleBtn from "./DarkModeToggleBtn.control";
-import { INavBar } from "@/Entities/navbar/navbar.type";
+import { INavBar } from "@/Entities/header/navbar/navbar.type";
 
 export default function NavBarMenu({ items }: { items: INavBar[] }) {
     function ListNavBarItem() {

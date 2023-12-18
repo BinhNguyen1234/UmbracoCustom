@@ -1,11 +1,11 @@
-import { NavBar } from "../navbar/navbar";
+import { INavBarData } from "./navbar/navbar.type";
 import { IHeader } from "./header.type";
 
 export default class Header implements IHeader {
-    routes: NavBar[];
-    color: string;
     constructor(data: IHeader) {
         this.routes = data.routes
-        this.color = data.color
+        this.style = data.style
     }
+    routes: INavBarData[];
+    style: { color: { backGround: string; font: string; }; };
 }

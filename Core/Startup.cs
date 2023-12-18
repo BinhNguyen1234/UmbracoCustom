@@ -1,6 +1,6 @@
 ﻿using Core.Configure;
+using Core.Data;
 using Core.Infrastructure;
-using Core.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
 using Microsoft.Identity.Client;

@@ -1,8 +1,13 @@
-import { INavBarData } from "../navbar/navbar.type";
+import { INavBarData } from "./navbar/navbar.type";
 
 export interface IHeaderData {
     routes: INavBarData[],
-    color: string
+    style: {
+        color: {
+            backGround: string,
+            font: string
+        }
+    }
 }
 export interface IHeader extends IHeaderData{
 

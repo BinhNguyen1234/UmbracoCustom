@@ -12,11 +12,13 @@
     "generate-mockup-style": "npx tailwindcss -i ./src/app/globals.css -o ./src/MockupTesting/mockup-global.css"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^2.0.1",
     "axios": "^1.6.2",
     "lodash": "^4.17.21",
     "next": "14.0.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-redux": "^9.0.4"
   },
   "devDependencies": {
     "@stylistic/eslint-plugin": "^1.5.1",

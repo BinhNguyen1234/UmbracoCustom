@@ -1,4 +1,4 @@
-﻿using Core.Models;
+﻿using Core.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Distributed;
 using StackExchange.Redis;

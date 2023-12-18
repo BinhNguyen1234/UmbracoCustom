@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using Core.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Core.Models;
+namespace Core.Data;
 
-public partial class CmsContext : DbContext
+public partial class BlogContext : DbContext
 {
-    public CmsContext()
+    public BlogContext()
     {
     }
 
-    public CmsContext(DbContextOptions<CmsContext> options)
+    public BlogContext(DbContextOptions<BlogContext> options)
         : base(options)
     {
     }

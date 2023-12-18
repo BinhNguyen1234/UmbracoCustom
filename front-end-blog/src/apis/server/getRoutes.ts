@@ -1,6 +1,6 @@
 import config from "@config"
 import { httpClientAdapter } from "@/lib/ApiAdapter";
-import { INavBar } from "@/Entities/navbar/navbar.type";
+import { INavBar } from "@/Entities/header/navbar/navbar.type";
 import { IHeader } from "@/Entities/header/header.type";
 export async function getRoutesConfig(): Promise<INavBar[]>{
 
