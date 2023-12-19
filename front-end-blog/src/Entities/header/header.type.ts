@@ -7,7 +7,8 @@ export interface IHeaderData {
             backGround: string,
             font: string
         }
-    }
+    },
+    logo: string
 }
 export interface IHeader extends IHeaderData{
 

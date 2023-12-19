@@ -2,7 +2,7 @@
     "extends": ["next/core-web-vitals", "plugin:@typescript-eslint/recommended"],
     "parser": "@typescript-eslint/parser",
     "rules": {
-        "quotes": [2, "double"],
+        "quotes": [2, "double", {"allowTemplateLiterals": true}],
         "indent": [2, 4],
         "camelcase": [
             2,

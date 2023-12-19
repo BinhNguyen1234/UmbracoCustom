@@ -1,6 +1,6 @@
 
 import { INavBar } from "@/Entities/header/navbar/navbar.type"
-import { getRoutesConfig } from "@/apis/server/getRoutes"
+import { LayoutApi } from "@/apis/server/getRoutes"
 
 interface IParams {
     route: string
@@ -8,7 +8,7 @@ interface IParams {
 // export const dynamic = 0
 export const dynamicParams = false 
 export async function generateStaticParams() {
-    const items = await getRoutesConfig()
+    const items = await LayoutApi.getRoutesConfig()
     return _.map<INavBar, IParams>(items, (value)=>{
         const route = value.url.replace(/^\//, "")
         return { route }

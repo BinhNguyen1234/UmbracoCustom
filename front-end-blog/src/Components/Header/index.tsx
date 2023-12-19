@@ -1,11 +1,12 @@
-import { getRoutesConfig } from "@/apis/server/getRoutes";
+import { LayoutApi } from "@/apis/server/getRoutes";
 import HeaderView from "./Header.view";
-import NavBarMenu from "./NavBar/NavBarMenu.view";
+import NavBar from "./NavBar";
 
 export default async function Header() {
-    const ListNavItem = await getRoutesConfig()
+    const { routes, style, logo } = await LayoutApi.getHeaderConfig()
     return <>
-        <HeaderView>
-            <NavBarMenu items={ListNavItem}></NavBarMenu>
+        <HeaderView headerLogo={logo} headerStyle={style} 
+            NavBar={<NavBar items={routes}></NavBar>}>
+            
         </HeaderView></>
 }

@@ -24,6 +24,7 @@
 
   <ItemGroup>
     <Folder Include="Context\" />
+    <Folder Include="Data\Repositories\" />
   </ItemGroup>
 
 </Project>

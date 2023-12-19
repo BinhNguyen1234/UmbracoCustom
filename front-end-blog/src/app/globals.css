@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer base {
+    .dark .useAutoDarkTheme {
+        background-color: #090D1F;
+        color: #FFF;
+        transition: background-color 1s, color 1s
+    }
+    html {
+        font-size: 16px;
+    }
+}
+@layer components {
+    .useAutoDarkTheme {
+        transition: background-color 0.75s, color 0.75s
+    }
+}

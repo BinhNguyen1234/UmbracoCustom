@@ -1,15 +1,34 @@
-interface THeaderProps {
-    children: JSX.Element
+import { IHeader } from "@/Entities/header/header.type";
+interface HeaderViewProps {
+    children: JSX.Element;
+    headerStyle: IHeader["style"];
+    headerLogo: string
 }
-export default function HeaderView({ children }: THeaderProps): JSX.Element{
-    return (<>
-        <header className="flex justify-between items-center px-[112px]">
-            <div className="basis-1/5">
-                logo
-            </div>
-            <div className="">
-                {children}
-            </div>
-        </header>
-    </>)
+export default function HeaderView({
+    children,
+    headerStyle,
+    headerLogo
+}: HeaderViewProps): JSX.Element {
+    return (
+        <>
+            <header
+                style={{
+                    backgroundColor: headerStyle.color.backGround,
+                    color: headerStyle.color.font,
+                }}
+                className="py-[30px] !useAutoDarkTheme"
+            >
+                <div className="flex h-[60px] justify-between items-center px-[7rem]">
+                    <div className="basis-1/5 h-full">
+                        <img
+                            className="max-h-[100%] max-w-[100%]"
+                            alt="logo"
+                            src={headerLogo}
+                        ></img>
+                    </div>
+                    {children}
+                </div>
+            </header>
+        </>
+    );
 }

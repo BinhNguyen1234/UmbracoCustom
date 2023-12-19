@@ -6,9 +6,13 @@ module.exports = {
         },
         fontFamily: {
 
+        },
+        colors: {
+            "black": "#090D1F",
+            "white": "#FFF"
         }
     },
     plugins: [],
-    darkMode: "class"
+    darkMode: "class",
 }
 

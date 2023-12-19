@@ -1,7 +1,7 @@
 "use client"
 import { ReactElement } from "react";
 export default function Layout( props: {
-    aboutme: ReactElement;
+    about: ReactElement;
     blog: ReactElement;
     params: {
         route: string

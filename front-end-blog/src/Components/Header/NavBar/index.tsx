@@ -4,7 +4,7 @@ import NavBarItem from "./NavBarItem.view";
 import DarkModeToggleBtn from "./DarkModeToggleBtn.control";
 import { INavBar } from "@/Entities/header/navbar/navbar.type";
 
-export default function NavBarMenu({ items }: { items: INavBar[] }) {
+export default function NavBar({ items }: { items: INavBar[] }) {
     function ListNavBarItem() {
         return _.map<INavBar, JSX.Element>(items, (value, index) => {
             return (
