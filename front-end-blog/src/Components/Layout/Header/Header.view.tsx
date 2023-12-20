@@ -1,7 +1,8 @@
-import { IHeader } from "@/Entities/header/header.type";
+/* eslint-disable @next/next/no-img-element */
+import { IHeaderEntity } from "@/Entities/layout";
 interface HeaderViewProps {
     children: JSX.Element;
-    headerStyle: IHeader["style"];
+    headerStyle: IHeaderEntity["style"];
     headerLogo: string
 }
 export default function HeaderView({

@@ -1,5 +1,5 @@
-import { INavBar, INavBarData } from "./navbar.type";
-export class NavBar implements INavBar {
+import { INavBarEntity, INavBarData } from "./navbar.type";
+export default class NavBarEntity implements INavBarEntity {
     url: string;
     name: string;
     constructor (data: INavBarData){

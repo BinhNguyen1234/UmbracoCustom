@@ -1,8 +1,10 @@
 "use client"
+import { notFound } from "next/navigation";
 import { ReactElement } from "react";
 export default function Layout( props: {
     about: ReactElement;
     blog: ReactElement;
+    home: ReactElement
     params: {
         route: string
     }
@@ -11,7 +13,7 @@ export default function Layout( props: {
     const RenderComponent = (props as any)[currentRoute]
     return (
         <>
-            {RenderComponent}
+            {RenderComponent || notFound()}
         </>
     );
 }

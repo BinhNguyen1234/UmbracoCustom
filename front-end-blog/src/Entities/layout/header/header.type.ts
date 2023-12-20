@@ -1,6 +1,6 @@
 import { INavBarData } from "./navbar/navbar.type";
 
-export interface IHeaderData {
+export interface IHeaderEntity {
     routes: INavBarData[],
     style: {
         color: {
@@ -10,6 +10,6 @@ export interface IHeaderData {
     },
     logo: string
 }
-export interface IHeader extends IHeaderData{
+export interface IHeaderData extends IHeaderEntity{
 
 }

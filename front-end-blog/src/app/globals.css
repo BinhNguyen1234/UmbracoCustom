@@ -10,9 +10,18 @@
     html {
         font-size: 16px;
     }
+    .dark .moon {
+        display: block;
+    }
+    .dark .sun {
+        display: none;
+    }
 }
 @layer components {
     .useAutoDarkTheme {
         transition: background-color 0.75s, color 0.75s
+    }
+    .moon {
+        display: none;
     }
 }
