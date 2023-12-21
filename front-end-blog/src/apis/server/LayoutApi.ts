@@ -1,4 +1,4 @@
-import { httpClientAdapter } from "@/lib/ApiAdapter";
+import httpClientAdapter from "@/lib/ApiAdapter";
 import { ILayoutData, INavBarData, LayoutEntity } from "@/Entities/layout";
 import { IHeaderEntity, IHeaderData } from "@/Entities/layout";
 import { HeaderEntity, NavBarEntity } from "@/Entities/layout";
