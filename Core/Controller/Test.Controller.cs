@@ -1,18 +1,21 @@
-﻿using Core.Data;
+﻿using Core.BlogModel;
+using Core.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Distributed;
 using StackExchange.Redis;
 using System.Text;
 using System.Text.Json;
+using static Azure.Core.HttpHeader;
 
 namespace Core.ControllerApi
 {
     [Route("[controller]/[action]")]
     public class Test : Controller
     {
-        private CmsContext _cmsContext;
+        private TestContext _cmsContext;
         private IDatabase _cached;
-        public Test(CmsContext context, IDatabase cached) {
+        public Test(TestContext context, IDatabase cached) {
             this._cmsContext = context;
             this._cached = cached;  
         }
@@ -31,11 +34,16 @@ namespace Core.ControllerApi
             //var tt = _cached.StringGet("f4");
             //var de = Encoding.UTF8.GetString(tt);
             var js = JsonSerializer.Deserialize<AB>(json);
-            var d = _cmsContext.CmsContentNus.ToList();
+
             return Json(js);
         }
         [HttpPost]
         public IActionResult TestPost([FromBody]TestForm data) {
+            var home = new Home() { Address = "fffasdasd" };
+            var c = new Persons() { Name = "Buinh", Home = home };
+            var d = _cmsContext.Homes.AsNoTracking().Where(x => true).ToList();
+            var l = _cmsContext.ChangeTracker.Entries().Where(e => true).ToList();
+            _cmsContext.SaveChanges();
 
             return Json(data);
         }

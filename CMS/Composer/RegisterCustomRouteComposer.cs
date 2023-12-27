@@ -2,7 +2,8 @@
 using Microsoft.Extensions.DependencyInjection;
 using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.DependencyInjection;
-
+using AutoMapper;
+using CMS.Mapper;
 namespace CmsCore.Composer
 {
     public class CustomRoute : IComposer
@@ -13,6 +14,7 @@ namespace CmsCore.Composer
             {
                 options.LowercaseUrls = true;
             });
+            builder.Services.AddAutoMapper(typeof(MapperContent).Assembly);
         }
     }
 }

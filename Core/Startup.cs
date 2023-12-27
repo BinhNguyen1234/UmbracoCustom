@@ -1,6 +1,7 @@
-﻿using Core.Configure;
+﻿using Core.BlogModel;
+using Core.Configure;
 using Core.Data;
-using Core.Infrastructure;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
 using Microsoft.Identity.Client;
@@ -35,9 +36,9 @@ namespace Core
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<RouteOptions>((options) => { options.LowercaseUrls = true; });
-            services.AddDbContextPool<CmsContext>(optionsBuilder =>
+            services.AddDbContextPool<TestContext>(optionsBuilder =>
             {
-                string? connectionString = _builder.Configuration.GetConnectionString("umbracoDbDSN");
+                string? connectionString = _builder.Configuration.GetConnectionString("testDb");
                 if (connectionString != null)
                 {
                     optionsBuilder.UseSqlServer(connectionString);
