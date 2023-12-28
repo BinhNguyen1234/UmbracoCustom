@@ -7,6 +7,8 @@ using NUglify.Helpers;
 using StackExchange.Profiling.Internal;
 using System;
 using System.Linq;
+using System.Reflection;
+using Umbraco.Cms.Core.Models;
 using Umbraco.Cms.Core.Services;
 using Umbraco.Cms.Core.Services.Implement;
 using Umbraco.Cms.Web.Common.Authorization;
@@ -16,21 +18,24 @@ namespace CmsCore.ControllerCustom
     
     [ApiRouteAtribute("[controller]/[action]")]
     [ApiController]
-    public class TestController : Controller
+    public class Config : Controller
     {
         private IContentService _contentService;
         private readonly IMapper _mapper;
-        public TestController(IContentService contentService, IMapper mapper)
+        private IContent? _content;
+        public Config(IContentService contentService, IMapper mapper)
         {
             this._mapper = mapper;
             this._contentService = contentService;
+            this._content = this._contentService.GetRootContent().FirstOrDefault(x => x.Name != null && x.Name.Equals(this.GetType().Name));
         }
         [HttpGet]
-        public IActionResult name()
+        public IActionResult Route()
         {
-            var res = this._contentService.GetById(1096)?.Properties;
-            var tt = res?.Select(x => this._mapper.Map<RouteConfigVM>(x));
-            return Ok(tt);
+            
+            var res2 = this._contentService.GetRootContent();
+            var a = MethodBase.GetCurrentMethod()?.Name;
+            return Ok(_content);
         }
         [HttpGet]
         public IActionResult Age()
