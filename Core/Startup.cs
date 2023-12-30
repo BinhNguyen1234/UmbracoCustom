@@ -3,8 +3,7 @@ using Core.Configure;
 using Core.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.SqlServer;
-using Microsoft.Identity.Client;
+using Npgsql.EntityFrameworkCore.PostgreSQL;
 using StackExchange.Redis;
 namespace Core
 {
@@ -41,8 +40,9 @@ namespace Core
                 string? connectionString = _builder.Configuration.GetConnectionString("testDb");
                 if (connectionString != null)
                 {
-                    optionsBuilder.UseSqlServer(connectionString);
+                    optionsBuilder.UseNpgsql(connectionString);
                 }
+                
             });
             services.AddControllers();
             services.AddSingleton<IDatabase>(cfg =>

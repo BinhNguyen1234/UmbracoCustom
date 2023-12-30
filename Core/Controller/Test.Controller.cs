@@ -41,7 +41,8 @@ namespace Core.ControllerApi
         public IActionResult TestPost([FromBody]TestForm data) {
             var home = new Home() { Address = "fffasdasd" };
             var c = new Persons() { Name = "Buinh", Home = home };
-            var d = _cmsContext.Homes.AsNoTracking().Where(x => true).ToList();
+            var d = _cmsContext.Homes.Add(home);
+            var e = _cmsContext.Persons.Add(c);
             var l = _cmsContext.ChangeTracker.Entries().Where(e => true).ToList();
             _cmsContext.SaveChanges();
 
