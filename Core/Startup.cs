@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
 using StackExchange.Redis;
+using System.Net.Http;
 namespace Core
 {
     public class Startup
@@ -60,6 +61,7 @@ namespace Core
                 
                 return multiplexer.GetDatabase();
             });
+            services.AddHttpClient();
 
 #if DEBUG
             services.AddSwaggerGen(c =>

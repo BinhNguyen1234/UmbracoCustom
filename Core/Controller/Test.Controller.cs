@@ -13,11 +13,13 @@ namespace Core.ControllerApi
     [Route("[controller]/[action]")]
     public class Test : Controller
     {
-        private TestContext _cmsContext;
-        private IDatabase _cached;
-        public Test(TestContext context, IDatabase cached) {
+        private readonly TestContext _cmsContext;
+        private readonly IDatabase _cached;
+        private readonly IHttpClientFactory _httpClientFactory;
+        public Test(TestContext context, IDatabase cached, IHttpClientFactory httpClientFactory) {
             this._cmsContext = context;
             this._cached = cached;  
+            this._httpClientFactory = httpClientFactory;
         }
 
         [HttpGet]
@@ -38,7 +40,8 @@ namespace Core.ControllerApi
             return Json(js);
         }
         [HttpPost]
-        public IActionResult TestPost([FromBody]TestForm data) {
+        public IActionResult TestPost([FromBody] TestForm data)
+        {
             var home = new Home() { Address = "fffasdasd" };
             var c = new Persons() { Name = "Buinh", Home = home };
             var d = _cmsContext.Homes.Add(home);
@@ -47,6 +50,15 @@ namespace Core.ControllerApi
             _cmsContext.SaveChanges();
 
             return Json(data);
+        }
+        [HttpGet]
+        public async Task<IActionResult> CallCms()
+        {
+            var httpClient = _httpClientFactory.CreateClient();
+            httpClient.BaseAddress = new Uri("https://localhost:44338");
+            var rs = await httpClient.GetAsync("umbraco/delivery/api/v2/content?skip=0&take=10&fields=properties%5B%24all%5D");
+            var content = await rs.Content.ReadAsStringAsync();
+            return Ok("success");
         }
     }
     public class AB
