@@ -5,9 +5,9 @@ namespace Core.Data.Infrastucture
 {
     public abstract class GenericRepositoryBase<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
-        private BlogContext _dbContext;
+        private TestContext _dbContext;
         private DbSet<TEntity> _dbSet;
-        public GenericRepositoryBase(BlogContext dbContext)
+        public GenericRepositoryBase(TestContext dbContext)
         {
             _dbContext = dbContext;
             _dbSet = dbContext.Set<TEntity>();

@@ -48,7 +48,7 @@ namespace UmbracoProject
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            
             app.UseHttpsRedirection();
             app.UseUmbraco()
                 .WithMiddleware(u =>

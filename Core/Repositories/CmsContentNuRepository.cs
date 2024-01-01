@@ -1,21 +1,21 @@
 ﻿using Core.Data;
 using Core.Data.Infrastucture;
-using Core.Models;
+
 
 namespace Core.Repositories
 {
 
-    public class CmsContentNuRepository : GenericRepositoryBase<CmsContentNu>
+    public class CmsContentNuRepository : GenericRepositoryBase<Route>
     {
-        private BlogContext _context;
-        public CmsContentNuRepository(BlogContext context): base(context)
+        private TestContext _context;
+        public CmsContentNuRepository(TestContext context): base(context)
         {
             _context = context;
         }
 
         private bool _isDisposed = false;
 
-        public IQueryable<CmsContentNu> GetCmsContentNus()
+        public IQueryable<Route> GetCmsContentNus()
         {
             throw new NotImplementedException();
         }
@@ -25,7 +25,7 @@ namespace Core.Repositories
             throw new NotImplementedException();
         }
 
-        public override CmsContentNu Update(CmsContentNu content)
+        public override Route Update(Route content)
         {
             throw new NotImplementedException();
         }

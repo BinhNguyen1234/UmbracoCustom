@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Protos\GrpcTest.proto" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.59.0" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.59.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.5.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.5.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.5.0" />
@@ -15,6 +21,10 @@
 
   <ItemGroup>
     <Folder Include="JsonFile\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Protos\GrpcTest.proto" GrpcServices="Both" />
   </ItemGroup>
 
 </Project>

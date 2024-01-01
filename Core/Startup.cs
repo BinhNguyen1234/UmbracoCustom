@@ -1,8 +1,11 @@
-﻿using Core.BlogModel;
+﻿using CMS.Services;
 using Core.Configure;
 using Core.Data;
+using Core.Service.Cms;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
 using StackExchange.Redis;
 using System.Net.Http;
@@ -17,7 +20,7 @@ namespace Core
         }
         public void Configure(WebApplication app, IWebHostEnvironment env)
         {
-
+            app.MapGrpcService<TestGrpc>();
             app.Map("/api", app =>
             {
                 app.UseRouting();
@@ -35,6 +38,7 @@ namespace Core
         }
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddGrpc();
             services.Configure<RouteOptions>((options) => { options.LowercaseUrls = true; });
             services.AddDbContextPool<TestContext>(optionsBuilder =>
             {
@@ -61,7 +65,10 @@ namespace Core
                 
                 return multiplexer.GetDatabase();
             });
-            services.AddHttpClient();
+            services.AddHttpClient<ICmsService, CmsService>(configure =>
+            {
+                configure.BaseAddress = new Uri("https://localhost:44338");
+            });
 
 #if DEBUG
             services.AddSwaggerGen(c =>

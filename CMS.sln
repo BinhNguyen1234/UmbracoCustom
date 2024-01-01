@@ -12,7 +12,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UmbracoProject", "UmbracoPr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "Core\Core.csproj", "{489815C0-44DD-4541-BE5C-B4A8604270C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MockUpApi", "MockUpApi\MockUpApi.csproj", "{EF76B79D-9620-4C5A-83DF-60E4D7D4D876}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MockUpApi", "MockUpApi\MockUpApi.csproj", "{EF76B79D-9620-4C5A-83DF-60E4D7D4D876}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
