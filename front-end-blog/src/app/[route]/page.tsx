@@ -15,7 +15,7 @@ export async function generateStaticParams() {
     })
 } 
 export default function Route(){
-    return <>
-    </>
+
+    return null
 }
 

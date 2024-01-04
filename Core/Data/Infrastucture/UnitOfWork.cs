@@ -18,6 +18,11 @@ namespace Core.Data.Infrastucture
             throw new NotImplementedException();
         }
 
+        public void Save()
+        {
+            throw new NotImplementedException();
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (!_disposed)

@@ -10,8 +10,7 @@ using System.Linq;
 using System.Reflection;
 using Umbraco.Cms.Core.Models;
 using Umbraco.Cms.Core.Services;
-using Umbraco.Cms.Core.Services.Implement;
-using Umbraco.Cms.Web.Common.Authorization;
+
 
 namespace CmsCore.ControllerCustom
 {
@@ -32,7 +31,6 @@ namespace CmsCore.ControllerCustom
         [HttpGet]
         public IActionResult Route()
         {
-            
             var res2 = this._contentService.GetRootContent();
             var a = MethodBase.GetCurrentMethod()?.Name;
             return Ok(_content);

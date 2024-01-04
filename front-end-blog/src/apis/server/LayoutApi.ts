@@ -1,4 +1,4 @@
-import httpClientAdapter from "@/lib/ApiAdapter";
+import httpClientAdapter from "@/SingletonContainer";
 import { ILayoutData, INavBarData, LayoutEntity } from "@/Entities/layout";
 import { IHeaderEntity, IHeaderData } from "@/Entities/layout";
 import { HeaderEntity, NavBarEntity } from "@/Entities/layout";
@@ -13,8 +13,8 @@ export const LayoutApi = {
         const { data } = await httpClientAdapter.get<INavBarData[]>({
             url: "/api/mockup/get/routes",
         });
-        return data.map((d)=>{
-            return new NavBarEntity(d)
+        return data.map((item)=>{
+            return new NavBarEntity(item)
         })
     },
     getLayoutConfig: async function (): Promise<LayoutEntity> {

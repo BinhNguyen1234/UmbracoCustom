@@ -19,9 +19,9 @@ namespace MockUpApi.Controllers
 
             try
             {
-                var chanel = GrpcChannel.ForAddress("https://localhost:7022");
-                var client = new TestHello.TestHelloClient(chanel);
-                var rsgrpc = await client.SayHelloAsync(new HelloRequest { Name = "Bin" });
+                //var chanel = GrpcChannel.ForAddress("https://localhost:7022");
+                //var client = new TestHello.TestHelloClient(chanel);
+                //var rsgrpc = await client.SayHelloAsync(new HelloRequest { Name = "Bin" });
                 var folderPath = Path.Combine(Directory.GetCurrentDirectory(), "JsonFile");
                 DirectoryInfo folder = new DirectoryInfo(folderPath);
                 FileSystemInfo? file = folder.GetFileSystemInfos($"*", SearchOption.AllDirectories).FirstOrDefault(x => x.Name.ToLower().Equals(fileName.ToLower()) || x.Name.ToLower().StartsWith(fileName.ToLower()));

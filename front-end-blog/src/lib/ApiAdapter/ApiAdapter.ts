@@ -1,8 +1,8 @@
-import config from "@config";
+// import config from "@config";
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, CreateAxiosDefaults } from "axios";
 import { IApiAdapter, IApiAdapterReturn } from "./ApiAdapter.type";
 
-class HttpClientAdapter implements IApiAdapter {
+export class HttpClientAdapter implements IApiAdapter {
     #requestFactory: AxiosInstance;
     constructor(config: CreateAxiosDefaults = {}) {
         this.#requestFactory = axios.create(config);
@@ -37,4 +37,4 @@ class HttpClientAdapter implements IApiAdapter {
 export interface AdapterRequestConfig extends AxiosRequestConfig {
     url: string
 }
-export const httpClientAdapter = new HttpClientAdapter({ baseURL: config.BaseUrl })
+

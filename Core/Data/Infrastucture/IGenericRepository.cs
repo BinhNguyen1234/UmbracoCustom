@@ -2,7 +2,7 @@
 
 namespace Core.Data.Infrastucture
 {
-    public interface IGenericRepository<Entity> where Entity : class
+    public interface IGenericRepository<Entity> where Entity : IBaseModel
     {
         Entity Add(Entity entity);
         Entity Update(Entity entity);

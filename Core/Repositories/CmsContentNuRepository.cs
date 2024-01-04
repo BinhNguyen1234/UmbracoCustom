@@ -1,14 +1,15 @@
 ﻿using Core.Data;
 using Core.Data.Infrastucture;
+using Core.Data.Model;
 
 
 namespace Core.Repositories
 {
 
-    public class CmsContentNuRepository : GenericRepositoryBase<Route>
+    public class CmsContentNuRepository : GenericRepositoryBase<RouteModel>
     {
-        private TestContext _context;
-        public CmsContentNuRepository(TestContext context): base(context)
+        private CoreContext _context;
+        public CmsContentNuRepository(CoreContext context): base(context)
         {
             _context = context;
         }
@@ -25,7 +26,7 @@ namespace Core.Repositories
             throw new NotImplementedException();
         }
 
-        public override Route Update(Route content)
+        public RouteModel Update(Route content)
         {
             throw new NotImplementedException();
         }

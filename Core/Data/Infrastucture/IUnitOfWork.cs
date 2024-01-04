@@ -7,5 +7,8 @@ namespace Core.Data.Infrastucture
     {
         void Commit();
         void RollBack();
+
+        void Save();
+
     }
 }

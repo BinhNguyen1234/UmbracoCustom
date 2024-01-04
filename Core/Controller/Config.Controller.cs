@@ -1,5 +1,7 @@
 ﻿using Core.BlogModel;
 using Core.Data;
+using Core.Data.Infrastucture;
+using Core.Data.Model;
 using Core.Service.Cms;
 using Grpc.Net.Client;
 using Microsoft.AspNetCore.Mvc;
@@ -12,14 +14,14 @@ using System.Text.Json;
 namespace Core.ControllerApi
 {
     [Route("[controller]/[action]")]
-    public class Test : Controller
+    public class Config : Controller
     {
-        private readonly TestContext _cmsContext;
+        private readonly GenericRepositoryBase<RouteModel> _coreContext;
         private readonly IDatabase _cached;
         private readonly IHttpClientFactory _httpClientFactory;
         private readonly ICmsService _cmsService;
-        public Test(TestContext context, IDatabase cached, IHttpClientFactory httpClientFactory, ICmsService cmsService) {
-            this._cmsContext = context;
+        public Config(GenericRepositoryBase<RouteModel> context, IDatabase cached, IHttpClientFactory httpClientFactory, ICmsService cmsService) {
+            this._coreContext = context;
             this._cached = cached;  
             this._httpClientFactory = httpClientFactory;
             this._cmsService = cmsService;  
@@ -47,18 +49,24 @@ namespace Core.ControllerApi
         {
             var home = new Home() { Address = "fffasdasd" };
             var c = new Persons() { Name = "Buinh", Home = home };
-            var d = _cmsContext.Homes.Add(home);
-            var e = _cmsContext.Persons.Add(c);
-            var l = _cmsContext.ChangeTracker.Entries().Where(e => true).ToList();
-            _cmsContext.SaveChanges();
+            //var d = _coreContext.Homes.Add(home);
+            //var e = _coreContext.Persons.Add(c);
+            //var l = _coreContext.ChangeTracker.Entries().Where(e => true).ToList();
+            //_coreContext.SaveChanges();
             var chanel = GrpcChannel.ForAddress("https://localhost:44338");
             var client = new TestHello.TestHelloClient(chanel);
             var rsgrpc = client.SayHello(new HelloRequest { Name = "Bin" });
             return Json(data);
         }
         [HttpGet]
-        public async Task<IActionResult> GetConfig()
+        public async Task<IActionResult> GetRoutesConfig()
         {
+            //step 1: get content in cached if not exist we will invoked step 2
+            var t = await _coreContext.dbSet.ToListAsync();
+
+            //step 2: get content in Db, if not exist we invoked step 3
+
+            // step 3: get content in CMS, than store to Db and send Db to caching
             var content = await this._cmsService.GetRoutesConfig();
             return Ok(content);
         }

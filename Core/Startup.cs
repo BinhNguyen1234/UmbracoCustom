@@ -9,6 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Npgsql.EntityFrameworkCore.PostgreSQL;
 using StackExchange.Redis;
 using System.Net.Http;
+using AutoMapper;
+using Core.Mapper;
 namespace Core
 {
     public class Startup
@@ -40,7 +42,7 @@ namespace Core
         {
             services.AddGrpc();
             services.Configure<RouteOptions>((options) => { options.LowercaseUrls = true; });
-            services.AddDbContextPool<TestContext>(optionsBuilder =>
+            services.AddDbContextPool<CoreContext>(optionsBuilder =>
             {
                 string? connectionString = _builder.Configuration.GetConnectionString("testDb");
                 if (connectionString != null)
@@ -69,6 +71,7 @@ namespace Core
             {
                 configure.BaseAddress = new Uri("https://localhost:44338");
             });
+            services.AddAutoMapper(typeof(DtoToEntites).Assembly, typeof(EntiesToDbModelProfile).Assembly);
 
 #if DEBUG
             services.AddSwaggerGen(c =>

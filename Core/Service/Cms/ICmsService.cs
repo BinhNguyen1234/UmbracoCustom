@@ -1,7 +1,10 @@
-﻿namespace Core.Service.Cms
+﻿using Core.DTO.Cms;
+using Core.DTO.Cms.Properties;
+
+namespace Core.Service.Cms
 {
     public interface ICmsService
     {
-        Task<ResponseModel> GetRoutesConfig();
+        Task<ResponseModel<RouteConfig>> GetRoutesConfig();
     }
 }

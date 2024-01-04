@@ -1,2 +1,2 @@
-import { httpClientAdapter } from "./ApiAdapter";
-export default httpClientAdapter
+import { HttpClientAdapter } from "./ApiAdapter";
+export { HttpClientAdapter }

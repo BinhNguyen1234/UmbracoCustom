@@ -3,11 +3,15 @@ using System.Linq.Expressions;
 
 namespace Core.Data.Infrastucture
 {
-    public abstract class GenericRepositoryBase<TEntity> : IGenericRepository<TEntity> where TEntity : class
+    public class GenericRepositoryBase<TEntity> : IGenericRepository<TEntity> where TEntity : class, IBaseModel
     {
-        private TestContext _dbContext;
-        private DbSet<TEntity> _dbSet;
-        public GenericRepositoryBase(TestContext dbContext)
+        protected readonly CoreContext _dbContext;
+        protected readonly DbSet<TEntity> _dbSet;
+        public  DbSet<TEntity> dbSet
+        {
+            get { return this._dbSet; }
+        }
+        public GenericRepositoryBase(CoreContext dbContext)
         {
             _dbContext = dbContext;
             _dbSet = dbContext.Set<TEntity>();
