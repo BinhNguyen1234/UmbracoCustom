@@ -2,7 +2,7 @@
 using Core.Data.Model;
 using Microsoft.EntityFrameworkCore;
 
-namespace Core.Data
+namespace Core.Data.Context
 {
     public class CoreContext : DbContext
     {

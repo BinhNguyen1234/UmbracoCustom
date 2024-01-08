@@ -1,5 +1,4 @@
 ﻿
-using Core.Repositories;
 
 namespace Core.Data.Infrastucture
 {

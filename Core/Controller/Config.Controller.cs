@@ -2,6 +2,7 @@
 using Core.Data;
 using Core.Data.Infrastucture;
 using Core.Data.Model;
+using Core.Data.Repositories;
 using Core.Service.Cms;
 using Grpc.Net.Client;
 using Microsoft.AspNetCore.Mvc;
@@ -16,14 +17,12 @@ namespace Core.ControllerApi
     [Route("[controller]/[action]")]
     public class Config : Controller
     {
-        private readonly GenericRepositoryBase<RouteModel> _coreContext;
+        private readonly IRouteRepository _routes;
         private readonly IDatabase _cached;
-        private readonly IHttpClientFactory _httpClientFactory;
         private readonly ICmsService _cmsService;
-        public Config(GenericRepositoryBase<RouteModel> context, IDatabase cached, IHttpClientFactory httpClientFactory, ICmsService cmsService) {
-            this._coreContext = context;
+        public Config(IRouteRepository routes, IDatabase cached, ICmsService cmsService) {
+            this._routes = routes;
             this._cached = cached;  
-            this._httpClientFactory = httpClientFactory;
             this._cmsService = cmsService;  
         }
 
@@ -62,10 +61,10 @@ namespace Core.ControllerApi
         public async Task<IActionResult> GetRoutesConfig()
         {
             //step 1: get content in cached if not exist we will invoked step 2
-            var t = await _coreContext.dbSet.ToListAsync();
+            
 
             //step 2: get content in Db, if not exist we invoked step 3
-
+            var db = this._routes.GetAll();
             // step 3: get content in CMS, than store to Db and send Db to caching
             var content = await this._cmsService.GetRoutesConfig();
             return Ok(content);
