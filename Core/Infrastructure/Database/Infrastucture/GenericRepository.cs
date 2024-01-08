@@ -1,8 +1,9 @@
-﻿using Core.Data.Context;
+﻿using Core.Infrastructure.Database;
+using Core.Infrastructure.Database.Infrastucture.Interface;
 using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
-namespace Core.Data.Infrastucture
+namespace Core.Infrastructure.Database.Infrastucture
 {
     public abstract class GenericRepositoryBase<Model> where Model : class, IBaseModel
     {

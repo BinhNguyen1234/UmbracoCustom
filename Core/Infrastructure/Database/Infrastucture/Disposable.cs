@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.IO;
 
-namespace Core.Data.Infrastucture
+namespace Core.Infrastructure.Database.Infrastucture
 {
     public abstract class Disposable : IDisposable
     {

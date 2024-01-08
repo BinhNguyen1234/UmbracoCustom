@@ -1,9 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Core.Data.Infrastucture
+namespace Core.Infrastructure.Database.Infrastucture.Interface
 {
     public interface IBaseModel
     {
-        Guid Id { get; set;  }
+        Guid Id { get; set; }
     }
 }

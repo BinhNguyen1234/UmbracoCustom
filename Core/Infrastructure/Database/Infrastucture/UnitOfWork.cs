@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Core.Infrastructure.Database.Infrastucture.Interface;
+using Microsoft.EntityFrameworkCore;
 
-namespace Core.Data.Infrastucture
+namespace Core.Infrastructure.Database.Infrastucture
 {
     public class UnitOfWork : Disposable, IUnitOfWork, IDisposable
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CMS.Services
+namespace Core.Infrastructure.Service
 {
     public class TestGrpc : TestHello.TestHelloBase
     {

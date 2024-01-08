@@ -1,6 +1,4 @@
-﻿
-
-namespace Core.Data.Infrastucture
+﻿namespace Core.Infrastructure.Database.Infrastucture.Interface
 {
     public interface IUnitOfWork : IDisposable
     {

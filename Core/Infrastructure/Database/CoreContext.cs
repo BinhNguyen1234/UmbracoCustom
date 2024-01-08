@@ -1,8 +1,8 @@
 ﻿using Core.BlogModel;
-using Core.Data.Model;
+using Core.Infrastructure.Database.Model;
 using Microsoft.EntityFrameworkCore;
 
-namespace Core.Data.Context
+namespace Core.Infrastructure.Database
 {
     public class CoreContext : DbContext
     {

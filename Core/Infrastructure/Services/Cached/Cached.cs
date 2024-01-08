@@ -1,4 +1,4 @@
-﻿namespace Core.Service.Cached
+﻿namespace Core.Infrastructure.Service.Cached
 {
     public class Cached : ICached
     {

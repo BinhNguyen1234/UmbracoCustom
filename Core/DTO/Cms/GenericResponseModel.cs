@@ -3,7 +3,7 @@
     public class ResponseModel<Properties> where Properties : class
     {
         public required int total { get; set; }
-        public required IEnumerable<ItemModel<Properties>> items { get; set; }
+        public required IList<ItemModel<Properties>> items { get; set; }
     }
     public class ItemModel<Properties> where Properties : class
     {

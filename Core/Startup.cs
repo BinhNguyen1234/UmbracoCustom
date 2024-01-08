@@ -1,17 +1,11 @@
-﻿using CMS.Services;
-using Core.Configure;
-using Core.Data;
-using Core.Service.Cms;
-using Microsoft.AspNetCore.Identity;
+﻿using Core.Configure;
+using Core.Infrastructure.Database;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Npgsql.EntityFrameworkCore.PostgreSQL;
 using StackExchange.Redis;
-using System.Net.Http;
-using AutoMapper;
 using Core.Mapper;
-using Core.Data.Context;
+using Core.Infrastructure.Service;
+using Core.Infrastructure.Services.Cms;
+using Core.Services.Extension;
 namespace Core
 {
     public class Startup
@@ -72,6 +66,8 @@ namespace Core
             {
                 configure.BaseAddress = new Uri("https://localhost:44338");
             });
+            services.AddRepositories();
+            services.AddInternalServices();
             services.AddAutoMapper(typeof(DtoToEntites).Assembly, typeof(EntiesToDbModelProfile).Assembly);
 
 #if DEBUG

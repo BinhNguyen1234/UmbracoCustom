@@ -1,13 +1,15 @@
 ﻿using Core.BlogModel;
-using Core.Data;
-using Core.Data.Infrastucture;
-using Core.Data.Model;
-using Core.Data.Repositories;
-using Core.Service.Cms;
+using Core.Infrastructure.Database;
+using Core.Infrastructure.Database.Infrastucture;
+using Core.Infrastructure.Database.Model;
+using Core.Infrastructure.Database.Repositories.Interface;
+using Core.Infrastructure.Services.Cms;
+using Core.Services.Interface;
 using Grpc.Net.Client;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Distributed;
+using Microsoft.IdentityModel.Tokens;
 using StackExchange.Redis;
 using System.Text;
 using System.Text.Json;
@@ -17,13 +19,11 @@ namespace Core.ControllerApi
     [Route("[controller]/[action]")]
     public class Config : Controller
     {
-        private readonly IRouteRepository _routes;
+        private readonly IRoutesService _routesService;
         private readonly IDatabase _cached;
-        private readonly ICmsService _cmsService;
-        public Config(IRouteRepository routes, IDatabase cached, ICmsService cmsService) {
-            this._routes = routes;
+        public Config(IRoutesService routesService, IDatabase cached) {
+            this._routesService = routesService;
             this._cached = cached;  
-            this._cmsService = cmsService;  
         }
 
         [HttpGet]
@@ -61,13 +61,16 @@ namespace Core.ControllerApi
         public async Task<IActionResult> GetRoutesConfig()
         {
             //step 1: get content in cached if not exist we will invoked step 2
-            
+
 
             //step 2: get content in Db, if not exist we invoked step 3
-            var db = this._routes.GetAll();
-            // step 3: get content in CMS, than store to Db and send Db to caching
-            var content = await this._cmsService.GetRoutesConfig();
-            return Ok(content);
+            var data = await this._routesService.GetAllRoutesFromDb();
+            if (data.IsNullOrEmpty())
+            {
+                data = await this._routesService.AddRoutesToDbIfNotExist();
+            }
+            
+            return Ok(data);
         }
     }
     public class AB

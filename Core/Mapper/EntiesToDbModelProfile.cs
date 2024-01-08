@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using Core.Data.Model;
 using Core.DTO.Cms.Properties;
 using Core.Entities;
+using Core.Infrastructure.Database.Model;
 
 namespace Core.Mapper
 {
