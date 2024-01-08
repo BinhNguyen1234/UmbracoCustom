@@ -1,11 +1,11 @@
 ﻿namespace Core.DTO.Cms
 {
-    public class ResponseModel<Properties> where Properties : IProperties
+    public class ResponseModel<Properties> where Properties : class
     {
         public required int total { get; set; }
         public required IEnumerable<ItemModel<Properties>> items { get; set; }
     }
-    public class ItemModel<Properties> where Properties : IProperties
+    public class ItemModel<Properties> where Properties : class
     {
         public string? name { get; set; }
         public required string createDate { get; set; }
@@ -21,10 +21,6 @@
     {
         public required string path { get; set; }
         public required StartItemResponseModel startItem { get; set; }
-    }
-    public interface IProperties
-    {
-
     }
     public class StartItemResponseModel
     {

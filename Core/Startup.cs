@@ -11,6 +11,7 @@ using StackExchange.Redis;
 using System.Net.Http;
 using AutoMapper;
 using Core.Mapper;
+using Core.Data.Context;
 namespace Core
 {
     public class Startup
