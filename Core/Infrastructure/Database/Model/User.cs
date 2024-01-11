@@ -1,4 +1,5 @@
 ﻿using Core.Infrastructure.Database.Infrastucture.Interface;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
 namespace Core.Infrastructure.Database.Model
