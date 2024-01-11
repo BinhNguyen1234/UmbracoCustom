@@ -9,6 +9,7 @@ namespace Core.Infrastructure.Database
         public static IServiceCollection AddRepositories(this IServiceCollection services)
         {
             services.AddScoped<IRouteRepository, RouteRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
             return services;
         }
     }

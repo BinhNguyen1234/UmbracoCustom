@@ -14,10 +14,10 @@ using StackExchange.Redis;
 using System.Text;
 using System.Text.Json;
 
-namespace Core.ControllerApi
+namespace Core.Controllers
 {
     [Route("[controller]/[action]")]
-    public class Config : Controller
+    public class Config : ControllerBase
     {
         private readonly IRoutesService _routesService;
         private readonly IDatabase _cached;
@@ -41,7 +41,7 @@ namespace Core.ControllerApi
             //var de = Encoding.UTF8.GetString(tt);
             var js = JsonSerializer.Deserialize<AB>(json);
 
-            return Json(js);
+            return Ok(js);
         }
         [HttpPost]
         public IActionResult TestPost([FromBody] TestForm data)
@@ -55,7 +55,7 @@ namespace Core.ControllerApi
             var chanel = GrpcChannel.ForAddress("https://localhost:44338");
             var client = new TestHello.TestHelloClient(chanel);
             var rsgrpc = client.SayHello(new HelloRequest { Name = "Bin" });
-            return Json(data);
+            return Ok(data);
         }
         [HttpGet]
         public async Task<IActionResult> GetRoutesConfig()

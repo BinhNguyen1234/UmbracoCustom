@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Core.DTO;
 using Core.DTO.Cms.Properties;
 using Core.Infrastructure.Database.Model;
 using Core.Infrastructure.Database.Repositories.Interface;
@@ -18,17 +19,17 @@ namespace Core.Services
             this._cmsService = cmsService;
             this._mapper = mapper;
         }
-        public async Task AddRouteToDb(IList<RouteModel> routes)
+        public async Task AddRouteToDb(IList<Routes> routes)
         {
             await this._routeRepository.AddRoutes(routes);
-            await this._routeRepository.SaveChange();
+            //await this._routeRepository.Save();
         }
 
-        public async Task<IList<RouteModel>> GetAllRoutesFromDb()
+        public async Task<IList<Routes>> GetAllRoutesFromDb()
         {
             return await this._routeRepository.GetAll();
         }
-        public async Task<IList<RouteModel>?> AddRoutesToDbIfNotExist()
+        public async Task<IList<Routes>?> AddRoutesToDbIfNotExist()
         {
             var routes = await this.GetRoutesFromCmsAsync();
             if(routes is not null)
@@ -39,14 +40,14 @@ namespace Core.Services
             return null;
         }
 
-        public async Task<IList<RouteModel>?> GetRoutesFromCmsAsync()
+        public async Task<IList<Routes>?> GetRoutesFromCmsAsync()
         {
             var data = await this._cmsService.GetRoutesConfig();
             if (data is null)
             {
                 return null;
             }
-            return data.items.Select(x => _mapper.Map<RouteModel>(x)).ToList();
+            return data.items.Select(x => _mapper.Map<Routes>(x)).ToList();
         }
 
         public void GetRoutesFromCached()

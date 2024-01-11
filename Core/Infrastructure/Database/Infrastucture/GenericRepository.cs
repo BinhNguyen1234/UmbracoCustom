@@ -14,5 +14,9 @@ namespace Core.Infrastructure.Database.Infrastucture
             _dbContext = dbContext;
             _dbSet = dbContext.Set<Model>();
         }
+        public async Task<int> SaveChangeAsync()
+        {
+            return await this._dbContext.SaveChangesAsync();
+        }
     }
 }

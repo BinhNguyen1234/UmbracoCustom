@@ -10,6 +10,7 @@ namespace Core.Infrastructure.Database
         {
             Database.EnsureCreated();
         }
-        public DbSet<RouteModel> Routes { get; set; }
+        public DbSet<Routes> Routes { get; set; }
+        public DbSet<User> User { get; set; }
     }
 }

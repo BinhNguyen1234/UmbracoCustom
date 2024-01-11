@@ -1,6 +1,6 @@
-﻿namespace Core.DTO
-{
-    public class Routes
-    {
-    }
-}
+﻿//namespace Core.DTO
+//{
+//    public class Routes
+//    {
+//    }
+//}

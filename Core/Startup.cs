@@ -6,6 +6,7 @@ using Core.Mapper;
 using Core.Infrastructure.Service;
 using Core.Infrastructure.Services.Cms;
 using Core.Services.Extension;
+using Microsoft.Extensions.DependencyInjection;
 namespace Core
 {
     public class Startup
@@ -68,7 +69,7 @@ namespace Core
             });
             services.AddRepositories();
             services.AddInternalServices();
-            services.AddAutoMapper(typeof(DtoToEntites).Assembly, typeof(EntiesToDbModelProfile).Assembly);
+            services.AddAutoMapper(typeof(DtoToEntites).Assembly, typeof(EntiesToDbModelProfile).Assembly, typeof(RequestDTOProfile).Assembly);
 
 #if DEBUG
             services.AddSwaggerGen(c =>
