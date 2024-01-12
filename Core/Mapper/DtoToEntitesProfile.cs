@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Core.Entities;
 using Core.DTO.Cms.Properties;
+using Core.Infrastructure.Database.Model;
 namespace Core.Mapper
 {
     public class DtoToEntites : Profile
@@ -11,9 +12,9 @@ namespace Core.Mapper
             {
                 return false;
             };
-            CreateMap<RouteConfig, RouteEntites>()
-                .ForMember(d => d.name, opt => opt.MapFrom(s => s.name_custom))
-                .ForMember(d => d.url, opt => opt.MapFrom(s => s.url));
+            CreateMap<RouteConfig, Routes>()
+                .ForMember(d => d.Name, opt => opt.MapFrom(s => s.name_custom))
+                .ForMember(d => d.Url, opt => opt.MapFrom(s => s.url));
         }
     }
 }

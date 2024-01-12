@@ -18,5 +18,10 @@ namespace Core.Infrastructure.Database.Repositories
         {
             await _dbSet.AddRangeAsync(routes);
         }
+
+        public async Task SaveAsync()
+        {
+            await base.SaveChangeAsync();
+        }
     }
 }

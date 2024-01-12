@@ -22,7 +22,7 @@ namespace Core.Services
         public async Task AddRouteToDb(IList<Routes> routes)
         {
             await this._routeRepository.AddRoutes(routes);
-            //await this._routeRepository.Save();
+            await this._routeRepository.SaveAsync();
         }
 
         public async Task<IList<Routes>> GetAllRoutesFromDb()
@@ -47,7 +47,7 @@ namespace Core.Services
             {
                 return null;
             }
-            return data.items.Select(x => _mapper.Map<Routes>(x)).ToList();
+            return data.items.Select(x => _mapper.Map<Routes>(x.properties)).ToList();
         }
 
         public void GetRoutesFromCached()

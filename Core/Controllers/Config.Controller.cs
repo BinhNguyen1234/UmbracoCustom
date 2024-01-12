@@ -65,11 +65,10 @@ namespace Core.Controllers
 
             //step 2: get content in Db, if not exist we invoked step 3
             var data = await this._routesService.GetAllRoutesFromDb();
-            if (!data.IsNullOrEmpty())
+            if (data.IsNullOrEmpty())
             {
                 data = await this._routesService.AddRoutesToDbIfNotExist();
             }
-            
             return Ok(data);
         }
     }

@@ -8,5 +8,6 @@ namespace Core.Infrastructure.Database.Repositories.Interface
     {
         Task<IList<Routes>> GetAll();
         Task AddRoutes(IList<Routes> routes);
+        Task SaveAsync();
     }
 }
